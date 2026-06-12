@@ -1,0 +1,19 @@
+{
+  "id": "stockApi",
+  "name": "TastytradeStockMonitor",
+  "version": "1.0.0",
+  "minNoctaliaVersion": "3.6.0",
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": "https://github.com/TrentFeldman/NoctaliaTastytradeStockMonitor",
+  "description": "A simple example plugin",
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {}
+  }
+}
