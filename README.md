@@ -1,4 +1,4 @@
-# Noctalia Tastytrade Stock Monitor
+# Noctalia TastyTrade Stock Monitor
 
 Small local Node.js Noctalia widget for TastyTrade portfolios
 

@@ -98,5 +98,6 @@ await fetchAccounts(accessToken)
 console.log(acctNumber);
 
 await fetchBalances(acctNumber, accessToken)
-  .then(response => acctBal = response.data["margin-equity"])
+  //.then(response => acctBal = response.data["margin-equity"])
+  .then(response => acctBal = response)
 console.log(acctBal);
