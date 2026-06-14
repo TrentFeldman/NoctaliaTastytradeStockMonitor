@@ -6,6 +6,7 @@ let clientId = null;
 let clientSecret = null;
 let accessToken = null;
 let acctNumber = null;
+let acctBal = -1;
 const baseUrl = "https://api.tastyworks.com"
 const USER_AGENT = "stock-api/0.1";
 
@@ -71,8 +72,31 @@ async function fetchAccounts(accessToken) {
   return JSON.parse(text);
 }
 
+async function fetchBalances(acctNumber, accessToken){
+  const response = await fetch(`${baseUrl}/accounts/${acctNumber}/balances`, 
+  {method: "GET",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${accessToken}`,
+      "User-Agent": USER_AGENT,
+    },
+  });
+
+  const text = await response.text();
+
+  if (!response.ok) {
+    throw new Error(`Accounts request failed: ${response.status} ${text}`);
+  }
+
+  return JSON.parse(text);
+}
+
 accessToken = await getAccessToken({ refreshToken, clientSecret });
 //console.log(accessToken);
 await fetchAccounts(accessToken)
   .then(response => {acctNumber = response.data.items[0].account['account-number'];})
 console.log(acctNumber);
+
+await fetchBalances(acctNumber, accessToken)
+  .then(response => acctBal = response.data["margin-equity"])
+console.log(acctBal);
