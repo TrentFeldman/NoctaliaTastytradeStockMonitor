@@ -6,7 +6,7 @@ let clientId = null;
 let clientSecret = null;
 let accessToken = null;
 let acctNumber = null;
-let acctBal = -1;
+let acctBal = -1;23
 const baseUrl = "https://api.tastyworks.com"
 const USER_AGENT = "stock-api/0.1";
 
@@ -98,6 +98,7 @@ await fetchAccounts(accessToken)
 console.log(acctNumber);
 
 await fetchBalances(acctNumber, accessToken)
-  //.then(response => acctBal = response.data["margin-equity"])
-  .then(response => acctBal = response)
+  //.then(response => acctBal = response)
+ .then(response => acctBal = response.data["margin-equity"])
 console.log(acctBal);
+
